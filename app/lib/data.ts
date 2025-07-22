@@ -22,6 +22,7 @@ export async function fetchRevenue() {
     const data = await sql<Revenue[]>`SELECT * FROM revenue`;
 
     // console.log('Data fetch completed after 3 seconds.');
+    // console.log('Data fetch completed', data);
 
     return data;
   } catch (error) {
@@ -43,6 +44,7 @@ export async function fetchLatestInvoices() {
       ...invoice,
       amount: formatCurrency(invoice.amount),
     }));
+    console.log('Data fetch completed', latestInvoices);
     return latestInvoices;
   } catch (error) {
     console.error('Database Error:', error);
